@@ -6,6 +6,7 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 import nltk
 
@@ -53,6 +54,13 @@ if uploaded_true is not None and uploaded_fake is not None:
     y = np.concatenate([np.zeros(len(df_true)), np.ones(len(df_fake))])
     model = LogisticRegression()
     model.fit(x, y)
+
+    # Calculate accuracy on training data
+    y_train_pred = model.predict(x)
+    training_accuracy = accuracy_score(y, y_train_pred)
+
+    # Display accuracy
+    st.write(f"Training Accuracy: {training_accuracy}")
 
     text = st.text_area("Enter the news text:")
     prediction = predict_fake_news(text)
