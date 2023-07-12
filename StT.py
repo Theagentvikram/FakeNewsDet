@@ -33,7 +33,7 @@ def predict_fake_news(text):
 
 # Streamlit app code
 def main():
-    st.title("Fake News Detector")
+    st.title("Fake News Detection")
 
     text = st.text_input("Enter the news text:")
     if st.button("Predict"):
