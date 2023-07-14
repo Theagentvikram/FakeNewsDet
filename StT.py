@@ -8,7 +8,7 @@ import nltk
 
 # Download NLTK stopwords
 nltk.download('stopwords')
-
+st.set_page_config(page_title="Fake News Detection", page_icon="IMG.png")
 # Load pre-trained models
 model = jb.load("finaldump.joblib")
 vectorizer = jb.load("vect.dat")
